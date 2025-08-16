@@ -8,7 +8,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -32,12 +32,17 @@
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=18"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "mongoose": "^8.17.1",
+    "uuid": "^11.1.0",
+    "zod": "^4.0.17"
+  }
 }
