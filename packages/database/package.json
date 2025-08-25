@@ -1,0 +1,30 @@
+{
+  "name": "@moa/database",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@nestjs/graphql": "^13.1.0",
+    "@nestjs/mongoose": "^11.0.3",
+    "mongoose": "^8.17.1",
+    "typescript": "latest",
+    "uuid": "^11.1.0",
+    "zod": "^4.0.17"
+  },
+  "devDependencies": {
+    "ts-morph": "^25.0.1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "includes": ["src"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+}
