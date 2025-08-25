@@ -1,0 +1,14 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    # Uncomment on prod and use mongodb cluster instead
+    # environment:
+    #   # MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+    #   # MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+      - mongo-db-web:/data/db
+
+volumes:
+  mongo-db-web:
