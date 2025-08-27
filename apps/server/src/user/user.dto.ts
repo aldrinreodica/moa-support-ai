@@ -4,8 +4,10 @@ import {
   IsOptional,
   IsBoolean,
   IsDate,
+  IsEnum,
 } from 'class-validator';
 import { Field, InputType } from '@nestjs/graphql';
+import { UserRole } from 'src/graphql/enums/role.enum';
 
 @InputType()
 export class CreateUserInput {
@@ -25,22 +27,17 @@ export class CreateUserInput {
   @IsString()
   password: string;
 
-  @Field({ defaultValue: 'user' })
+  @Field(() => UserRole, { defaultValue: UserRole.USER })
   @IsOptional()
-  @IsString()
-  role?: string = 'user';
+  @IsEnum(UserRole)
+  role?: UserRole = UserRole.USER;
 
-  @Field(() => Date)
-  @IsOptional()
-  @IsDate()
-  createdAt?: Date = new Date();
-
-  @Field({ defaultValue: true })
+  @Field(() => Boolean, { defaultValue: true })
   @IsOptional()
   @IsBoolean()
   isActive?: boolean = true;
 
-  @Field({ defaultValue: false })
+  @Field(() => Boolean, { defaultValue: false })
   @IsOptional()
   @IsBoolean()
   isVerified?: boolean = false;
@@ -73,17 +70,17 @@ export class UpdateUserInput {
   @IsString()
   password?: string;
 
-  @Field({ nullable: true })
+  @Field(() => UserRole, { nullable: true })
   @IsOptional()
-  @IsString()
-  role?: string;
+  @IsEnum(UserRole)
+  role?: UserRole;
 
-  @Field({ nullable: true })
+  @Field(() => Boolean, { nullable: true })
   @IsOptional()
   @IsBoolean()
   isActive?: boolean;
 
-  @Field({ nullable: true })
+  @Field(() => Boolean, { nullable: true })
   @IsOptional()
   @IsBoolean()
   isVerified?: boolean;

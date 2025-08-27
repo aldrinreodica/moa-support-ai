@@ -3,7 +3,6 @@
 # ------------------------------------------------------
 
 input CreateUserInput {
-  createdAt: DateTime! = "2025-08-25T09:06:18.064Z"
   email: String!
   firstName: String!
   isActive: Boolean! = true
@@ -11,7 +10,7 @@ input CreateUserInput {
   lastLogin: DateTime
   lastName: String!
   password: String!
-  role: String! = "user"
+  role: UserRole! = USER
 }
 
 """
@@ -38,7 +37,7 @@ input UpdateUserInput {
   lastLogin: DateTime
   lastName: String
   password: String
-  role: String
+  role: UserRole
 }
 
 type User {
@@ -51,4 +50,16 @@ type User {
   lastName: String!
   password: String!
   role: String!
+}
+
+"""Roles of the user"""
+enum UserRole {
+  """Administrator with elevated access"""
+  ADMIN
+
+  """Super Administrator with full access"""
+  SUPERADMIN
+
+  """Regular user with standard access"""
+  USER
 }

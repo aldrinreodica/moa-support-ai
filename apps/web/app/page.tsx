@@ -1,65 +1,46 @@
-import { FunctionComponent } from 'react'
-
-// Components
+import AppSidebar from '@/components/nav/AppSidebar'
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@/components/ui/sidebar'
+import { FunctionComponent } from 'react'
 
 const Home: FunctionComponent = () => {
   return (
-    <div className="flex flex-col flex-wrap items-center gap-2">
-      <h1 className="text-2xl text-amber-600">Home page</h1>
-      <div className="h-auto w-[400px]">
-        <Card className="w-full max-w-sm">
-          <CardHeader>
-            <CardTitle>Login to your account</CardTitle>
-            <CardDescription>
-              Enter your email below to login to your account
-            </CardDescription>
-            <CardAction>
-              <Button variant="link">Sign Up</Button>
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <form>
-              <div className="flex flex-col gap-6">
-                <div className="grid gap-2">
-                  <label htmlFor="email">Email</label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <div className="flex items-center">
-                    <label htmlFor="password">Password</label>
-                  </div>
-                  <Input id="password" type="password" required />
-                </div>
-              </div>
-            </form>
-          </CardContent>
-          <CardFooter className="flex-col gap-2">
-            <Button type="submit" className="w-full">
-              Login
-            </Button>
-            <Button variant="outline" className="w-full">
-              Login with Google
-            </Button>
-          </CardFooter>
-        </Card>
-      </div>
-    </div>
+    <SidebarProvider>
+      {/* Sidebar */}
+      <AppSidebar />
+      <SidebarInset>
+        {/* Header */}
+        <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b px-4">
+          <div className="flex items-center gap-2">
+            <SidebarTrigger className="-ml-1" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-[orientation=vertical]:h-4"
+            />
+            <h1 className="text-black/50">MOA Support AI</h1>
+          </div>
+          <div className="flex gap-2">
+            <Button>Login</Button>
+            <Button>Sign up</Button>
+          </div>
+        </header>
+
+        {/* Chat */}
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <div className="bg-muted/50 aspect-video rounded-xl" />
+            <div className="bg-muted/50 aspect-video rounded-xl" />
+            <div className="bg-muted/50 aspect-video rounded-xl" />
+          </div>
+          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   )
 }
 export default Home

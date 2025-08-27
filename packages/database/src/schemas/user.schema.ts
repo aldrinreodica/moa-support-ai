@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose'
 import { v4 as uuidv4 } from 'uuid'
+import { UserRoleEnum } from '../types/user.type'
 
 @Schema({ timestamps: true })
 @ObjectType()
@@ -25,7 +26,7 @@ export class User {
   @Field(() => String)
   password: string
 
-  @Prop({ default: 'user' })
+  @Prop({ default: UserRoleEnum.USER })
   @Field(() => String)
   role: string
 

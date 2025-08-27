@@ -11,7 +11,10 @@ export { MessageValidationSchema } from './validations/message.validation'
 export { AuditValidationSchema } from './validations/audit.validation'
 
 // Types
-export type { IUser } from './types/user.type'
+export type { IUser, UserRole } from './types/user.type'
 export type { ISession } from './types/session.type'
 export type { IMessage } from './types/message.type'
 export type { IAudit } from './types/audit.type'
+
+// Enums
+export { UserRoleEnum, UserRoleSchema } from './types/user.type'
