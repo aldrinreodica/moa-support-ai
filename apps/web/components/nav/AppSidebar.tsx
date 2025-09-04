@@ -16,26 +16,25 @@ import {
 } from '../ui/sidebar'
 import SearchForm from '../SearchForm'
 
-// Mock data
+// Mock data (display the chats here)
 const data = {
-  versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],
   navMain: [
     {
       title: 'Getting Started',
       url: '#',
       items: [
         {
-          title: 'Installation',
+          title: 'Choose a buddy',
           url: '#',
         },
         {
-          title: 'Project Structure',
+          title: 'Preferences',
           url: '#',
         },
       ],
     },
     {
-      title: 'Building Your Application',
+      title: 'Chats',
       url: '#',
       items: [
         {
@@ -89,62 +88,6 @@ const data = {
         },
       ],
     },
-    {
-      title: 'API Reference',
-      url: '#',
-      items: [
-        {
-          title: 'Components',
-          url: '#',
-        },
-        {
-          title: 'File Conventions',
-          url: '#',
-        },
-        {
-          title: 'Functions',
-          url: '#',
-        },
-        {
-          title: 'next.config.js Options',
-          url: '#',
-        },
-        {
-          title: 'CLI',
-          url: '#',
-        },
-        {
-          title: 'Edge Runtime',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Architecture',
-      url: '#',
-      items: [
-        {
-          title: 'Accessibility',
-          url: '#',
-        },
-        {
-          title: 'Fast Refresh',
-          url: '#',
-        },
-        {
-          title: 'Next.js Compiler',
-          url: '#',
-        },
-        {
-          title: 'Supported Browsers',
-          url: '#',
-        },
-        {
-          title: 'Turbopack',
-          url: '#',
-        },
-      ],
-    },
   ],
 }
 
@@ -152,11 +95,11 @@ const AppSidebar: FunctionComponent = ({ ...props }) => {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <h1 className="text-black/50">MOA</h1>
+        <h1 className="font-bold text-black/50">MOA</h1>
         <div className="flex flex-col gap-4">
-          <div className="m-2 flex flex-row items-center gap-2">
-            <IoCreateOutline size={30} className="text-black/50" />
-            <span className="text-sm font-medium">New Chat</span>
+          <div className="m-2 flex cursor-pointer flex-row items-center gap-2 p-2 hover:rounded-sm hover:bg-black/10">
+            <IoCreateOutline size={20} className="text-black" />
+            <span className="text-sm font-[400]">New Chat</span>
           </div>
         </div>
         <SearchForm />

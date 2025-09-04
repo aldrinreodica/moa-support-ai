@@ -6,6 +6,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
+import Link from 'next/link'
 import { FunctionComponent } from 'react'
 
 const Home: FunctionComponent = () => {
@@ -25,8 +26,12 @@ const Home: FunctionComponent = () => {
             <h1 className="text-black/50">MOA Support AI</h1>
           </div>
           <div className="flex gap-2">
-            <Button>Login</Button>
-            <Button>Sign up</Button>
+            <Link href="/login">
+              <Button className="cursor-pointer">Login</Button>
+            </Link>
+            <Link href="/create-account">
+              <Button className="cursor-pointer">Sign up</Button>
+            </Link>
           </div>
         </header>
 
