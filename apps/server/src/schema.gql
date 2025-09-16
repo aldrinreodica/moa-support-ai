@@ -21,6 +21,7 @@ scalar DateTime
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   removeUser(id: String!): User!
+  signUp(email: String!, password: String!): User!
   updateUser(id: String!, updateUserInput: UpdateUserInput!): User!
 }
 

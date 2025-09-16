@@ -31,12 +31,12 @@ const SignUpForm: FunctionComponent<Props> = ({ className, ...props }) => {
                   placeholder="Email address"
                   required
                 />
-                <Input
+                {/* <Input
                   id="password"
                   type="password"
                   placeholder="Password"
                   required
-                />
+                /> */}
               </div>
               <Button type="submit" className="w-full">
                 Continue
